@@ -6,12 +6,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "d:/School/3-2/Project/Motor-puzzel/include",
-                "d:/School/3-2/Project/Motor-puzzel/src",
+                "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/include",
+                "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
-                "C:/Users/robin/.platformio/lib/Bifrost library for HC-SR04_ID2019/src",
-                "C:/Users/robin/.platformio/lib/RadioLib_ID5795/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
@@ -23,12 +21,10 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "d:/School/3-2/Project/Motor-puzzel/include",
-                    "d:/School/3-2/Project/Motor-puzzel/src",
+                    "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/include",
+                    "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
-                    "C:/Users/robin/.platformio/lib/Bifrost library for HC-SR04_ID2019/src",
-                    "C:/Users/robin/.platformio/lib/RadioLib_ID5795/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
