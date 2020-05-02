@@ -10,6 +10,8 @@
                 "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
+                "C:/Users/robin/.platformio/lib/I2Cdevlib-Core_ID11",
+                "C:/Users/robin/.platformio/lib/I2Cdevlib-MPU6050_ID107",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
@@ -25,6 +27,8 @@
                     "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "C:/Users/robin/.platformio/lib/I2Cdevlib-Core_ID11",
+                    "C:/Users/robin/.platformio/lib/I2Cdevlib-MPU6050_ID107",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
@@ -35,8 +39,9 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=40301",
+                "PLATFORMIO=40303",
                 "ARDUINO_AVR_UNO",
+                "MASTER",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
                 "ARDUINO=10808",
