@@ -12,7 +12,7 @@ void setup() {
   Wire.begin();                           //begin the wire comunication  
   Wire.beginTransmission(0x68);           //begin, Send the slave adress (in this case 68)  
   Wire.write(0x6B);                       //make the reset (place a 0 into the 6B register)
-  Wire.write(0x00);
+  Wire.write(0x07);
   Wire.endTransmission(true);             //end the transmission
   
   Wire.beginTransmission(0x68);           //begin, Send the slave adress (in this case 68) 
@@ -31,7 +31,7 @@ void setup() {
       Wire.beginTransmission(0x68);            //begin, Send the slave adress (in this case 68) 
       Wire.write(0x43);                        //First adress of the Gyro data
       Wire.endTransmission(false);
-      Wire.requestFrom(0x68,6,true);           //We ask for just 4 registers 
+      Wire.requestFrom(0x68,6,true);           //We ask for just 6 registers 
          
       Gyr_rawX=Wire.read()<<8|Wire.read();     //Once again we shif and sum
       Gyr_rawY=Wire.read()<<8|Wire.read();
