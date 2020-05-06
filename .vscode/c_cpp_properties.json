@@ -41,7 +41,6 @@
             "defines": [
                 "PLATFORMIO=40303",
                 "ARDUINO_AVR_UNO",
-                "MASTER",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
                 "ARDUINO=10808",

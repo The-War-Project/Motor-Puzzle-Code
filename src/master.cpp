@@ -1,6 +1,7 @@
 #ifdef MASTER
 #include <Arduino.h>
 #include "circ-buffer.h"
+bool foo = false;
 
 void setup() {
   // put your setup code here, to run once:

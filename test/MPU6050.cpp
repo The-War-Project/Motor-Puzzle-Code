@@ -4,8 +4,8 @@
 float elapsedTime, time, timePrev;        //Variables for time control
 int gyro_error=0;                         //We use this variable to only calculate once the gyro data error
 int16_t Gyr_rawX, Gyr_rawY, Gyr_rawZ;     //Here we store the raw data read 
-float Gyro_angle_x, Gyro_angle_y;         //Here we store the angle value obtained with Gyro data
-float Gyro_raw_error_x, Gyro_raw_error_y; //Here we store the initial gyro data error
+float Gyro_angle_x, Gyro_angle_y, Gyro_angle_z;             //Here we store the angle value obtained with Gyro data
+float Gyro_raw_error_x, Gyro_raw_error_y, Gyro_raw_error_z; //Here we store the initial gyro data error
 
 void setup() {
   // put your setup code here, to run once:
@@ -31,19 +31,23 @@ void setup() {
       Wire.beginTransmission(0x68);            //begin, Send the slave adress (in this case 68) 
       Wire.write(0x43);                        //First adress of the Gyro data
       Wire.endTransmission(false);
-      Wire.requestFrom(0x68,4,true);           //We ask for just 4 registers 
+      Wire.requestFrom(0x68,6,true);           //We ask for just 4 registers 
          
       Gyr_rawX=Wire.read()<<8|Wire.read();     //Once again we shif and sum
       Gyr_rawY=Wire.read()<<8|Wire.read();
+      Gyr_rawZ=Wire.read()<<8|Wire.read();
    
       /*---X---*/
       Gyro_raw_error_x = Gyro_raw_error_x + (Gyr_rawX/32.8); 
       /*---Y---*/
       Gyro_raw_error_y = Gyro_raw_error_y + (Gyr_rawY/32.8);
+      /*---Z---*/
+      Gyro_raw_error_z = Gyro_raw_error_z + (Gyr_rawZ/32.8);
       if(i==199)
       {
         Gyro_raw_error_x = Gyro_raw_error_x/200;
         Gyro_raw_error_y = Gyro_raw_error_y/200;
+        Gyro_raw_error_z = Gyro_raw_error_z/200;
         gyro_error=1;
       }
     }
@@ -66,34 +70,28 @@ void loop() {
     Wire.beginTransmission(0x68);            //begin, Send the slave adress (in this case 68) 
     Wire.write(0x43);                        //First adress of the Gyro data
     Wire.endTransmission(false);
-    Wire.requestFrom(0x68,4,true);           //We ask for just 4 registers
+    Wire.requestFrom(0x68,6,true);           //We ask for 6 registers
         
     Gyr_rawX=Wire.read()<<8|Wire.read();     //Once again we shif and sum
     Gyr_rawY=Wire.read()<<8|Wire.read();
+    Gyr_rawZ=Wire.read()<<8|Wire.read();
     /*Now in order to obtain the gyro data in degrees/seconds we have to divide first
     the raw value by 32.8 because that's the value that the datasheet gives us for a 1000dps range*/
     /*---X---*/
     Gyr_rawX = (Gyr_rawX/32.8) - Gyro_raw_error_x; 
     /*---Y---*/
     Gyr_rawY = (Gyr_rawY/32.8) - Gyro_raw_error_y;
-    
+    /*---Z---*/
+    Gyr_rawZ = (Gyr_rawZ/32.8) - Gyro_raw_error_z;
+
     /*Now we integrate the raw value in degrees per seconds in order to obtain the angle
     * If you multiply degrees/seconds by seconds you obtain degrees */
     /*---X---*/
     Gyro_angle_x = Gyro_angle_x  + Gyr_rawX*elapsedTime;
-    /*---X---*/
+    /*---Y---*/
     Gyro_angle_y = Gyro_angle_y  + Gyr_rawY*elapsedTime;
+    /*---Z---*/
+    Gyro_angle_z = Gyro_angle_z  + Gyr_rawZ*elapsedTime;
 
-    //Serial.print("GyroX raw: ");
-    //Serial.print(Gyr_rawX);
-    //Serial.print("   |   ");
-    //Serial.print("GyroY raw: ");
-    //Serial.println(Gyr_rawY);
-    //Serial.print("   |   ");
-    //Serial.print("GyroX angle: ");
-    //Serial.print(Gyro_angle_x);
-    Serial.print("   |   ");
-    Serial.print("GyroY angle: ");
-    Serial.println(Gyro_angle_y);
-    delay(10);
+    Serial.println(Gyro_angle_z);
 }
