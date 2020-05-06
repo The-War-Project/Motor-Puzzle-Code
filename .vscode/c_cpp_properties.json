@@ -8,6 +8,7 @@
             "includePath": [
                 "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/include",
                 "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
+                "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/lib/circ-buffer",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
                 "C:/Users/robin/.platformio/lib/I2Cdevlib-Core_ID11",
@@ -25,6 +26,7 @@
                 "path": [
                     "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/include",
                     "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/src",
+                    "d:/Robin/Documents/School/3-2/Project/Motor-puzzel/lib/circ-buffer",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/robin/.platformio/packages/framework-arduino-avr/variants/standard",
                     "C:/Users/robin/.platformio/lib/I2Cdevlib-Core_ID11",
@@ -41,6 +43,7 @@
             "defines": [
                 "PLATFORMIO=40303",
                 "ARDUINO_AVR_UNO",
+                "MASTER",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
                 "ARDUINO=10808",
