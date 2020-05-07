@@ -54,12 +54,14 @@ uint8_t CircBuffer::getFill(void){
 	return this->fill;
 }
 
-/* Returns the average of all the values stored in the buffer.
+/* Returns the sum of all the values stored in the buffer.
  */
 float CircBuffer::getSum(void){
 	return this->sum;
 }
 
+/* Returns the average of all the values stored in the buffer.
+ */
 float CircBuffer::getAverage(void){
 	return this->avg;
 }
@@ -77,18 +79,18 @@ CircBufferStatus_t CircBuffer::put(float data){
 		// increase number of elements
 		this->fill++;
 		// increase sum
-		this->sum =+ data;
+		this->sum += data;
 		// check if last byte has been overwritten (pushed out)
 		if(this->head == this->tail){
 			//decrease sum
-			this->sum =- this->buffer[this->tail];
+			this->sum -= this->buffer[this->tail];
 			// move tail
 			this->tail = (this->tail + 1) % this->length;
 			// correct fill
 			this->fill = this->length;
 		}
 		//update average
-		this->avg = this->sum/this->fill;
+		this->avg = this->sum/(this->fill-1);
 
 		return CB_SUCCESS;
 	}

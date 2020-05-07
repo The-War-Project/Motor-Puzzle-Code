@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#define MAX_BUF_SIZE 128
+#define MAX_BUF_SIZE 256
 
 typedef enum circBufferStatuses{
 	CB_SUCCESS,
