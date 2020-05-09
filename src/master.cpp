@@ -3,6 +3,8 @@
 #include "circ-buffer.h"
 #include "Wire.h"
 
+#define batteryPin A0
+#define batteryLed 5
 const int MPU = 0x68;
 float elapsedTime, time, timePrev;
 bool err_Calculated=false;
@@ -51,6 +53,12 @@ void setup() {
   } 
   //Circular buffer init 
   values.init(50);
+
+  //Set analog reference to 1.1V via internal
+  analogReference(INTERNAL);
+  //Make batteryPin analog input and batteryLed digital output
+  pinMode(batteryLed, OUTPUT);
+  pinMode(batteryPin, INPUT);
 }
 
 void loop() {
@@ -82,6 +90,11 @@ void loop() {
     if (abs(angleShift) >= 11.25){
       Serial.println(angleShift);
     }
+  }
+
+  //Check if the battery voltage is high enough >5V
+  if(analogRead(batteryPin)<0.45){
+    digitalWrite(batteryLed, HIGH);
   }
 }
 #endif
