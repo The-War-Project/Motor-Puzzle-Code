@@ -1,4 +1,3 @@
-#ifndef MASTER
 #include <Arduino.h>
 #define MS1Pin 2
 #define MS2Pin 3
@@ -14,10 +13,15 @@ void setup() {
   pinMode(stepPin, OUTPUT);
   pinMode(dirPin, OUTPUT);
 
-  
+  digitalWrite(MS1Pin, LOW);
+  digitalWrite(MS2Pin, HIGH);
+  digitalWrite(MS3Pin, LOW);
+  digitalWrite(dirPin, HIGH);
+  digitalWrite(stepPin, LOW);
+  delay(200);
+  digitalWrite(stepPin, HIGH);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
 }
-#endif
