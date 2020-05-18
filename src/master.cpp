@@ -85,9 +85,10 @@ void loop() {
     oldAngle = newAngle;
     newAngle = Gyr_angle_z;
     angleShift = newAngle - oldAngle;
-    if (angleShift<-180) angleShift += 360;
-    else if (angleShift>180) angleShift -= 360;
+    while (angleShift<-180) angleShift += 360;
+    while (angleShift>180) angleShift -= 360;
     if (abs(angleShift) >= 11.25){
+      if (angleShift < 0) angleShift += 360;
       Serial.println(angleShift);
     }
   }
