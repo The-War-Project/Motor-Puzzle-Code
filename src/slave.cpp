@@ -57,7 +57,6 @@ void loop() {
   if(Serial.available()>0 && !updateLed){
     dif = Serial.parseFloat();
     if (dif > 180) dif -= 360;
-    Serial.println(dif);
     updateLed = true;
     angle += round(dif/22.5)*22.5;
   
@@ -65,7 +64,7 @@ void loop() {
     while (angle>180) angle -= 360;
     while (angle<=-180) angle += 360; 
 
-    //Set the right direction in which the motor will rotate (depends of the connection of the coils)
+    //Set the right direction in which the motor will rotate (depends on the connection of the coils)
     if(dif<0){
       digitalWrite(dirPin, LOW);
     }
@@ -74,7 +73,7 @@ void loop() {
     }
   
     //Make the clock pulse with the right length
-    length = 50*abs(dif)/22.5;
+    length = 50*round(abs(dif)/22.5);
     //Move the motor
     for (int i = 0; i < length; i++){
       digitalWrite(stepPin, !digitalRead(stepPin));
