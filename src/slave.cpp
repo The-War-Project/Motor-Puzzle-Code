@@ -86,7 +86,7 @@ void loop() {
     switcher = round(angle/22.5);
     switch(switcher){
       case 0:
-       if(sw_state[0] == 0 && sw_state[1] == 0 && sw_state[2] == 0 && sw_state[3] == 0) digitalWrite(ledPin,HIGH);  
+       if(sw_state[0] == 0 && sw_state[1] == 1 && sw_state[2] == 0 && sw_state[3] == 0) digitalWrite(ledPin,HIGH);  
         else digitalWrite(ledPin, LOW);
         break;
       case 1:
